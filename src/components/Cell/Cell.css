@@ -1,0 +1,8 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5vmin;
+  height: 5vmin;
+  border: 0.5px black solid;
+}
