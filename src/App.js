@@ -2,12 +2,13 @@ import { useState } from "react";
 import "./App.css";
 import Controls from "./components/Controls";
 import Grid from "./components/Grid/index.jsx";
+import starrySky from "./assets/images/skyStarsPattern.jpg";
 
 const App = () => {
   const [roverState, setRoverState] = useState({ x: 0, y: 0, dir: 0 });
   const [path, setPath] = useState("");
   const onPathChange = (e) => {
-    setPath(e.target.value.replace(/[^lfr]/gi, ""));
+    setPath(e.target.value.replace(/[^lfr]/gi, "").toLowerCase());
   };
   const onSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +60,7 @@ const App = () => {
       <div className="mars">
         <Grid roverState={roverState} />
       </div>
-      <div className="space">
+      <div className="space" style={{ backgroundImage: `url(${starrySky})` }}>
         <Controls value={path} onChange={onPathChange} onSubmit={onSubmit} />
         <h2>
           Steer the Mars Rover by typing in a path using the following commands:

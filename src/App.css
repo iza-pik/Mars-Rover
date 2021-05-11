@@ -18,12 +18,13 @@
 .space {
   height: 100vh;
   width: 100vw;
-  background-image: repeating-linear-gradient(
-    45deg,
-    darkblue 4vmin,
-    rgb(2, 2, 41) 10vmin,
-    darkblue 4vmin
-  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 80s linear infinite;
 }
 
 h2 {
@@ -35,4 +36,13 @@ ul {
   font-size: 3.5vmin;
   color: bisque;
   list-style: none;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100vw 0;
+  }
 }
