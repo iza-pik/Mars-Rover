@@ -17,9 +17,9 @@ const App = () => {
       /* eslint no-loop-func: "off" */
       setTimeout(() => {
         if (path[i] === "l") {
-          dir = roverState.dir === 0 ? 3 : (roverState.dir -= 1);
+          dir = dir === 0 ? 3 : dir - 1;
         } else if (path[i] === "r") {
-          dir = roverState.dir > 3 ? 0 : (roverState.dir += 1);
+          dir = dir >= 3 ? 0 : dir + 1;
         } else if (path[i] === "f") {
           switch (dir) {
             // N:
@@ -50,6 +50,7 @@ const App = () => {
               break;
           }
         }
+        console.log(roverState);
         setRoverState({ x, y, dir });
       }, 500 * i);
     }
